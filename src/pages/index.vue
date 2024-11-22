@@ -17,7 +17,7 @@
             class="v-card--reveal"
             :class="{ 'v-card--reveal-active': isHovering }"
           >
-            <span class="centered-text">Hololive</span>
+            <span class="centered-text">$14.99</span>
           </div>
         </v-img>
       </v-card>
@@ -51,9 +51,8 @@
   font-size: 24px;
   font-weight: bold;
   color: white; /* Ensure text is visible */
-  text-decoration: underline;
   position: relative;
-  opacity: 0; /* Start hidden */
+  opacity: 1; /* Start hidden */
   transform: translateY(20px); /* Start below */
   transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
 }
@@ -61,6 +60,23 @@
 .v-card--reveal-active .centered-text {
   opacity: 1; /* Fade in */
   transform: translateY(0); /* Move into place */
+}
+
+/* Underline Effect */
+.centered-text::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px; /* Position just below the text */
+  height: 2px; /* Thickness of the underline */
+  background-color: white;
+  transition: all 0.6s ease-in-out;
+}
+
+.v-card--reveal-active .centered-text::after {
+  bottom: -10px; /* Match the wrapping rectangle's position */
+  opacity: 0; /* Disappear as the wrapping rectangle grows */
 }
 
 /* Hover Rectangle Effect */
