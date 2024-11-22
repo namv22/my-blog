@@ -1,6 +1,6 @@
-My Blog
+<h1>My Blog</h1>
 
-This is a page for my personal Blog, make using Vuetify!
+<h3>This is a page for my personal Blog, make using Vuetify!</h3>
 
 # Vuetify (Default)
 
