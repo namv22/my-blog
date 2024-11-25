@@ -54,24 +54,6 @@ export default createVuetify({
           warning: '#fb8c00'
         }
       },
-      myCustomTheme: {
-        colors: {
-          // green: '#xxx', 1️⃣
-          greenish: '#xxx',
-      
-          // 2️⃣
-          background: '#ccc',
-          surface: '#212121',
-          primary: '#00ff00',
-          'primary-darken-1': '#3700B3',
-          secondary: '#03DAC5',
-          'secondary-darken-1': '#03DAC5',
-          error: '#CF6679',
-          info: '#2196F3',
-          success: '#4CAF50',
-          warning: '#FB8C00'
-        }
-      },
     },
   },
 })
