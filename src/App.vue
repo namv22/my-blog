@@ -1,7 +1,6 @@
 <template>
   <v-btn @click="toggleTheme" class="d-flex align-center">
-    <v-icon>{{ icon }}</v-icon>
-    <i class="fa-brands fa-sith"></i>
+    <font-awesome-icon :icon="[fatype, icon]" />
     <span class="ml-2">{{ buttonText }}</span>
   </v-btn>
   <v-app>
@@ -15,7 +14,6 @@
   //
 import { useTheme } from 'vuetify'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-// import { byPrefixAndName } from '@awesome.me/kit-KIT_CODE/icons'
 
 const theme = useTheme()
 
@@ -26,10 +24,14 @@ function toggleTheme() {
 
 // Computed properties for button text and icon
 const buttonText = computed(() =>
-  theme.global.current.value.dark ? 'Welcome to the Darkside' : 'May the force be with you'
+  theme.global.current.value.dark ? 'Execute Order 66' : 'May the force be with you'
+)
+
+const fatype = computed(() =>
+  theme.global.current.value.dark ? 'fab' : 'fas'
 )
 
 const icon = computed(() =>
-  theme.global.current.value.dark ? 'mdi-moon-waning-crescent' : 'mdi-weather-sunny'
+  theme.global.current.value.dark ? 'sith' : 'jedi'
 )
 </script>
