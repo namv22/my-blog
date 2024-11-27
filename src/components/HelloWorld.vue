@@ -1,14 +1,16 @@
 <template>
   <v-container class="">
-    <v-responsive
-      class="align-centerfill-height mx-auto"
-      max-width="900"
-    >
-      <v-img
-        class="mb-4"
-        height="150"
-        src="@/assets/logo.png"
-      />
+    <v-responsive class="align-centerfill-height mx-auto" max-width="900">
+      <v-btn
+        variant="outlined"
+        @click="toggleTheme"
+        class="d-flex align-center"
+      >
+        <font-awesome-icon :icon="[fatype, icon]" />
+        <span class="ml-2">{{ buttonText }}</span>
+      </v-btn>
+
+      <v-img class="mb-4" height="150" src="@/assets/logo.png" />
 
       <div class="text-center">
         <div class="text-body-2 font-weight-light mb-n1">Welcome to</div>
@@ -18,8 +20,7 @@
 
       <div class="py-4" />
 
-      <v-row>
-        <v-col cols="12">
+      <v-col cols="12">
           <v-card
             class="py-4"
             color="surface-variant"
@@ -38,7 +39,9 @@
 
             <template #subtitle>
               <div class="text-subtitle-1">
-                Replace this page by removing <v-kbd>{{ `<HelloWorld />` }}</v-kbd> in <v-kbd>pages/index.vue</v-kbd>.
+                Replace this page by removing
+                <v-kbd>{{ `<HelloWorld />` }}</v-kbd> in
+                <v-kbd>pages/index.vue</v-kbd>.
               </div>
             </template>
 
@@ -51,8 +54,16 @@
             />
           </v-card>
         </v-col>
+      <v-row no-gutters>
+        <v-col cols="4">
+          <v-sheet class="pa-2 ma-2"> .v-col-4 </v-sheet>
+        </v-col>
+        <v-col cols="8">
+          <v-sheet class="pa-2 ma-2"> .v-col-8 </v-sheet>
+        </v-col>
 
-        <v-col cols="6">
+
+        <v-col cols="4">
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
@@ -76,7 +87,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="6">
+        <v-col cols="8">
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
@@ -100,7 +111,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="6">
+        <v-col cols="4">
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
@@ -124,7 +135,7 @@
           </v-card>
         </v-col>
 
-        <v-col cols="6">
+        <v-col cols="8">
           <v-card
             append-icon="mdi-open-in-new"
             class="py-4"
@@ -150,8 +161,40 @@
       </v-row>
     </v-responsive>
   </v-container>
+  <ImageHover />
 </template>
 
 <script setup>
-  //
+//
+import ImageHover from "./ImageHover.vue";
+import { useTheme } from "vuetify";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+const theme = useTheme();
+
+// Toggle theme
+function toggleTheme() {
+  theme.global.name.value = theme.global.current.value.dark ? "light" : "dark";
+}
+
+// Computed properties for button text and icon
+const buttonText = computed(() =>
+  theme.global.current.value.dark
+    ? "Execute Order 66"
+    : "May the force be with you",
+);
+
+const fatype = computed(() =>
+  theme.global.current.value.dark ? "fab" : "fas",
+);
+
+const icon = computed(() =>
+  theme.global.current.value.dark ? "sith" : "jedi",
+);
+
+const color = computed(() =>
+  theme.global.current.value.dark ? "#7fffd4" : "#8b0000",
+);
 </script>
+
+<style scoped></style>

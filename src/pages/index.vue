@@ -1,5 +1,4 @@
 <template>
-  <ImageHover />
   <HelloWorld />
 </template>
 
