@@ -14,7 +14,6 @@
         v-if="Array.isArray(item.icon)"
         :icon="item.icon"
         class="fa-icon"
-        style="color:aquamarine"
       />
       <!-- Otherwise, use v-icon for Material Icons -->
       <v-icon

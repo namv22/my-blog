@@ -33,7 +33,7 @@ export default createVuetify({
           error: '#fd77a4',
           info: '#419ef9',
           success: '#00bf9a',
-          warning: '#ff9f89'
+          warning: '#ff9f89',
         }
       },
       light: {

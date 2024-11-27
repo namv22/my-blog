@@ -1,6 +1,6 @@
 <template>
   <v-btn @click="toggleTheme" class="d-flex align-center">
-    <font-awesome-icon :icon="[fatype, icon]" />
+    <font-awesome-icon :icon="[fatype, icon]"/>
     <span class="ml-2">{{ buttonText }}</span>
   </v-btn>
   <v-app>
@@ -33,5 +33,9 @@ const fatype = computed(() =>
 
 const icon = computed(() =>
   theme.global.current.value.dark ? 'sith' : 'jedi'
+)
+
+const color = computed(() =>
+  theme.global.current.value.dark ? '#7fffd4' : '#8b0000'
 )
 </script>
